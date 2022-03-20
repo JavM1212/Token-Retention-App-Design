@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Box,
     Typography,
@@ -12,29 +12,46 @@ import {
     Button,
 } from "@mui/material";
 
+import AddRetention from "../../components/AddRetention/AddRetention";
+
 import { useStyles } from "./styles";
 
 const rows = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Home = () => {
+    const [addRetention, setAddRetention] = useState(false);
     const classes = useStyles();
 
     return (
         <Box className={classes.parentContainer}>
+            {addRetention && <AddRetention />}
             <Box className={classes.retentionsButtonContainer}>
                 <Typography
                     className={classes.retentionsSubtitle}
                     sx={{
-                        marginRight: 95,
+                        marginRight: 80,
                         color: "#2D5EC2",
                         fontWeight: "bold",
                     }}
                     variant="h5"
                 >
-                    Retentions
+                    Retention Movements
                 </Typography>
-                <Button className={classes.button} variant="contained">
-                    Add
+
+                <Button
+                    className={classes.link}
+                    onClick={() => setAddRetention(!addRetention)}
+                    sx={{
+                        width: 100,
+                        borderRadius: "50px !important",
+                        background: "#2D5EC2 !important",
+                        "&:hover": {
+                            backgroundColor: "#2d5ec2 !important",
+                        },
+                        fontWeight: "bold !important",
+                    }}
+                >
+                    {addRetention ? "Confirm" : "Add"}
                 </Button>
             </Box>
             <TableContainer className={classes.table} component={Paper}>

@@ -11,6 +11,10 @@ const useStyles = makeStyles({
     button: {
         color: "white !important",
     },
+    link: {
+        textDecoration: "none !important",
+        color: "white !important",
+    },
 });
 
 export { useStyles };

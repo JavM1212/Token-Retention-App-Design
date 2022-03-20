@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Paper, TextField, Typography, Button, Link } from "@mui/material";
 
 import { useStyles } from "./styles";
 
 const Login = () => {
+    const [isLogin, setIsLogin] = useState(true);
     const classes = useStyles();
 
     return (
         <Box className={classes.parentContainer}>
             <Paper className={classes.childContainer} elevation={6}>
                 <Typography variant="h3" sx={{ fontWeight: 200 }}>
-                    Login
+                    {isLogin ? "Login" : "Register"}
                 </Typography>
                 <form action="#" className={classes.formContainer}>
                     <TextField
@@ -29,9 +30,14 @@ const Login = () => {
                     />
                 </form>
                 <Button className={classes.button} variant="contained">
-                    Login
+                    {isLogin ? "Login" : "Register"}
                 </Button>
-                <Link className={classes.link}>SignUp</Link>
+                <Link
+                    className={classes.link}
+                    onClick={() => setIsLogin(!isLogin)}
+                >
+                    {isLogin ? "Sign Up" : "Sign In"}
+                </Link>
             </Paper>
         </Box>
     );

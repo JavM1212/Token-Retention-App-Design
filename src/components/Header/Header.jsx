@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, Button, Link } from "@mui/material";
 
 import { useStyles } from "./styles";
 
@@ -10,13 +10,21 @@ const Header = () => {
         <AppBar className={classes.parentContainer} position="relative">
             <Box className={classes.leftSideToolbarsContainer}>
                 <Toolbar>
-                    <Typography variant="h5">Token Retention</Typography>
+                    <Link href="/home" className={classes.link} variant="h5">
+                        Token Retention
+                    </Link>
                 </Toolbar>
             </Box>
             {window.location.pathname !== "/" && (
                 <Box className={classes.rightSideToolbarsContainer}>
                     <Toolbar>
-                        <Typography marginX={3}>0.28ETH</Typography>
+                        <Link
+                            href="/importTokens"
+                            className={classes.link}
+                            marginX={3}
+                        >
+                            0.28ETH
+                        </Link>
                         <Button className={classes.button}>Sign Out</Button>
                     </Toolbar>
                 </Box>
