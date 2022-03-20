@@ -1,22 +1,8 @@
 import React from "react";
 
-import {
-    Box,
-    Typography,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Button,
-    Link,
-} from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 
 import { useStyles } from "./styles";
-
-const rows = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const ImportTokens = () => {
     const classes = useStyles();
